@@ -1,0 +1,436 @@
+<html lang="en" class="scroll-smooth"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventra AI - Intelligent Stock Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        zinc: {
+                            850: '#1f1f22',
+                            900: '#18181b',
+                            950: '#09090b',
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Scrollbar for elegant feel */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #09090b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #27272a;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3f3f46;
+        }
+        
+        /* Custom Toggle Switch */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #3b82f6;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #3b82f6;
+        }
+        
+        /* Subtle grid background */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+    </style>
+<link id="all-fonts-link-font-geist" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist">.font-geist { font-family: 'Geist', sans-serif !important; }</style><link id="all-fonts-link-font-roboto" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-roboto">.font-roboto { font-family: 'Roboto', sans-serif !important; }</style><link id="all-fonts-link-font-montserrat" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-montserrat">.font-montserrat { font-family: 'Montserrat', sans-serif !important; }</style><link id="all-fonts-link-font-poppins" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-poppins">.font-poppins { font-family: 'Poppins', sans-serif !important; }</style><link id="all-fonts-link-font-playfair" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&amp;display=swap"><style id="all-fonts-style-font-playfair">.font-playfair { font-family: 'Playfair Display', serif !important; }</style><link id="all-fonts-link-font-instrument-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-instrument-serif">.font-instrument-serif { font-family: 'Instrument Serif', serif !important; }</style><link id="all-fonts-link-font-merriweather" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&amp;display=swap"><style id="all-fonts-style-font-merriweather">.font-merriweather { font-family: 'Merriweather', serif !important; }</style><link id="all-fonts-link-font-bricolage" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-bricolage">.font-bricolage { font-family: 'Bricolage Grotesque', sans-serif !important; }</style><link id="all-fonts-link-font-jakarta" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-jakarta">.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }</style><link id="all-fonts-link-font-manrope" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-manrope">.font-manrope { font-family: 'Manrope', sans-serif !important; }</style><link id="all-fonts-link-font-space-grotesk" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-space-grotesk">.font-space-grotesk { font-family: 'Space Grotesk', sans-serif !important; }</style><link id="all-fonts-link-font-work-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-work-sans">.font-work-sans { font-family: 'Work Sans', sans-serif !important; }</style><link id="all-fonts-link-font-pt-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-pt-serif">.font-pt-serif { font-family: 'PT Serif', serif !important; }</style><link id="all-fonts-link-font-geist-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist-mono">.font-geist-mono { font-family: 'Geist Mono', monospace !important; }</style><link id="all-fonts-link-font-space-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-space-mono">.font-space-mono { font-family: 'Space Mono', monospace !important; }</style><link id="all-fonts-link-font-quicksand" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-quicksand">.font-quicksand { font-family: 'Quicksand', sans-serif !important; }</style><link id="all-fonts-link-font-nunito" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-nunito">.font-nunito { font-family: 'Nunito', sans-serif !important; }</style></head>
+<body class="bg-zinc-950 text-zinc-400 font-sans antialiased selection:bg-indigo-500/30 selection:text-indigo-200">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 border-b border-white/5 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2 text-white cursor-pointer hover:opacity-80 transition-opacity">
+                <div class="w-6 h-6 bg-gradient-to-br from-indigo-500 to-purple-600 rounded flex items-center justify-center">
+                    <iconify-icon icon="lucide:box" width="14" height="14" stroke-width="1.5" class="text-white"></iconify-icon>
+                </div>
+                <span class="text-sm font-medium tracking-tight">INVENTRA</span>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-normal">
+                <a href="#" class="hover:text-white transition-colors">Product</a>
+                <a href="#" class="hover:text-white transition-colors">Solutions</a>
+                <a href="#" class="hover:text-white transition-colors">Pricing</a>
+                <a href="#" class="hover:text-white transition-colors">Changelog</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="#" class="text-xs font-medium hover:text-white transition-colors hidden sm:block">Log in</a>
+                <a href="#" class="text-xs font-medium bg-white text-black px-4 py-2 rounded-full hover:bg-zinc-200 transition-colors">Start free</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="relative pt-32 pb-20 overflow-hidden">
+        <!-- Background Effects -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-indigo-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+        <div class="absolute inset-0 bg-grid -z-10 opacity-30 pointer-events-none h-full"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+            
+            <!-- Announcement Badge -->
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-indigo-500/20 bg-indigo-500/10 text-indigo-300 text-xs font-medium mb-8 hover:bg-indigo-500/20 transition-colors cursor-pointer">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+                </span>
+                Introducing Predictive Logistics 2.0
+                <iconify-icon icon="lucide:arrow-right" width="12"></iconify-icon>
+            </div>
+
+            <h1 class="md:text-6xl lg:text-7xl leading-[1.1] text-4xl font-medium text-white tracking-tight mb-6">
+                Stock management,<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-white">clarified by Intelligence.</span>
+            </h1>
+            
+            <p class="text-lg text-zinc-500 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+                Connect your inventory data streams. Our AI analyzes input patterns to predict shortages, optimize overflow, and generate actionable executive summaries.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
+                <button class="h-10 px-6 rounded-full bg-white text-zinc-950 text-sm font-medium hover:bg-zinc-200 transition-all flex items-center gap-2 group">
+                    Start analyzing
+                    <iconify-icon icon="lucide:sparkles" class="group-hover:text-indigo-600 transition-colors" width="16"></iconify-icon>
+                </button>
+                <button class="h-10 px-6 rounded-full border border-zinc-800 bg-zinc-900/50 text-zinc-300 text-sm font-medium hover:bg-zinc-800 transition-all hover:border-zinc-700 flex items-center gap-2">
+                    View demo
+                    
+                </button>
+            </div>
+
+            <!-- UI Interface Mockup -->
+            <div class="relative max-w-5xl mx-auto rounded-xl border border-white/10 bg-zinc-900/50 backdrop-blur-sm shadow-2xl shadow-indigo-500/10 overflow-hidden">
+                <!-- Mac-like header -->
+                <div class="h-10 border-b border-white/5 bg-zinc-900/80 flex items-center px-4 justify-between">
+                    <div class="flex gap-2">
+                        <div class="w-2.5 h-2.5 rounded-full bg-red-500/20 border border-red-500/50"></div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/20 border border-yellow-500/50"></div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-green-500/20 border border-green-500/50"></div>
+                    </div>
+                    <div class="text-[10px] text-zinc-600 font-mono">dashboard.inventra.ai</div>
+                    <div class="w-10"></div>
+                </div>
+
+                <!-- Dashboard Content -->
+                <div class="p-6 grid grid-cols-1 md:grid-cols-12 gap-6 text-left">
+                    
+                    <!-- Left Sidebar (Inputs) -->
+                    <div class="md:col-span-3 space-y-6">
+                        <div>
+                            <p class="text-xs font-medium text-white mb-3 tracking-tight">DATA SOURCES</p>
+                            <div class="space-y-2">
+                                <div class="flex items-center justify-between p-2 rounded-lg bg-zinc-800/40 border border-white/5 hover:border-white/10 transition-colors group cursor-pointer">
+                                    <div class="flex items-center gap-2">
+                                        <div class="p-1 rounded bg-blue-500/10 text-blue-400">
+                                            <iconify-icon icon="lucide:database" width="14"></iconify-icon>
+                                        </div>
+                                        <span class="text-xs text-zinc-400 group-hover:text-zinc-200">Warehouse A</span>
+                                    </div>
+                                    <div class="w-2 h-2 rounded-full bg-green-500"></div>
+                                </div>
+                                <div class="flex items-center justify-between p-2 rounded-lg bg-zinc-800/40 border border-white/5 hover:border-white/10 transition-colors group cursor-pointer">
+                                    <div class="flex items-center gap-2">
+                                        <div class="p-1 rounded bg-purple-500/10 text-purple-400">
+                                            <iconify-icon icon="lucide:file-spreadsheet" width="14"></iconify-icon>
+                                        </div>
+                                        <span class="text-xs text-zinc-400 group-hover:text-zinc-200">Q3 Imports</span>
+                                    </div>
+                                    <div class="w-2 h-2 rounded-full bg-green-500"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <p class="text-xs font-medium text-white mb-3 tracking-tight">FILTERS</p>
+                            <div class="space-y-3">
+                                <label class="flex items-center gap-3 cursor-pointer group">
+                                    <div class="relative flex items-center">
+                                        <input type="checkbox" class="peer sr-only" checked="">
+                                        <div class="w-4 h-4 border border-zinc-700 rounded bg-zinc-900 peer-checked:bg-indigo-600 peer-checked:border-indigo-500 transition-colors flex items-center justify-center">
+                                            <iconify-icon icon="lucide:check" class="text-white opacity-0 peer-checked:opacity-100" width="10"></iconify-icon>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs text-zinc-500 group-hover:text-zinc-300">Low Stock Alert</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer group">
+                                    <div class="relative flex items-center">
+                                        <input type="checkbox" class="peer sr-only">
+                                        <div class="w-4 h-4 border border-zinc-700 rounded bg-zinc-900 peer-checked:bg-indigo-600 peer-checked:border-indigo-500 transition-colors flex items-center justify-center">
+                                            <iconify-icon icon="lucide:check" class="text-white opacity-0 peer-checked:opacity-100" width="10"></iconify-icon>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs text-zinc-500 group-hover:text-zinc-300">Predictive Overflow</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Main Content (AI Summary) -->
+                    <div class="md:col-span-9 space-y-6">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-sm font-medium text-white tracking-tight">AI Executive Summary</h3>
+                            <div class="flex items-center gap-2">
+                                <span class="text-[10px] text-zinc-500 uppercase tracking-widest">Live Analysis</span>
+                                <span class="relative flex h-2 w-2">
+                                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                                  <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Abstract AI Graphic/Chart area -->
+                        <div class="relative w-full h-48 rounded-lg bg-gradient-to-r from-zinc-900 to-zinc-800/50 border border-white/5 p-4 overflow-hidden">
+                             <!-- Decorative Grid lines -->
+                            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] [mask-image:linear-gradient(to_bottom,white,transparent)]"></div>
+                            
+                            <!-- Graph Lines -->
+                            <svg class="w-full h-full overflow-visible" preserveAspectRatio="none">
+                                <path d="M0,100 C50,90 100,120 150,80 C200,40 250,60 300,30 C350,10 400,40 450,20" stroke="url(#gradient)" stroke-width="2" fill="none" class="drop-shadow-[0_0_10px_rgba(99,102,241,0.5)]"></path>
+                                <defs>
+                                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="#818cf8" stop-opacity="0.2"></stop>
+                                        <stop offset="50%" stop-color="#818cf8"></stop>
+                                        <stop offset="100%" stop-color="#c084fc"></stop>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            
+                            <!-- Floating Metric Card -->
+                            <div class="absolute top-4 right-4 bg-zinc-900/90 backdrop-blur border border-white/10 rounded-md p-3 shadow-xl max-w-[140px]">
+                                <p class="text-[10px] text-zinc-500 mb-1">Stock Velocity</p>
+                                <div class="flex items-end gap-1">
+                                    <span class="text-lg font-medium text-white tracking-tight">+14.2%</span>
+                                    <iconify-icon icon="lucide:trending-up" class="text-emerald-500 mb-1" width="12"></iconify-icon>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Summary Cards -->
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                            <div class="p-4 rounded-lg bg-zinc-800/20 border border-white/5">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <iconify-icon icon="lucide:alert-circle" class="text-orange-400" width="14"></iconify-icon>
+                                    <span class="text-xs text-zinc-400">Critical Low</span>
+                                </div>
+                                <p class="text-sm text-zinc-200">SKU-992 (Processors)</p>
+                            </div>
+                            <div class="p-4 rounded-lg bg-zinc-800/20 border border-white/5">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <iconify-icon icon="lucide:arrow-right-left" class="text-blue-400" width="14"></iconify-icon>
+                                    <span class="text-xs text-zinc-400">Reorder Suggested</span>
+                                </div>
+                                <p class="text-sm text-zinc-200">450 Units needed</p>
+                            </div>
+                             <div class="p-4 rounded-lg bg-zinc-800/20 border border-white/5 hidden md:block">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <iconify-icon icon="lucide:check-circle-2" class="text-emerald-400" width="14"></iconify-icon>
+                                    <span class="text-xs text-zinc-400">Optimization</span>
+                                </div>
+                                <p class="text-sm text-zinc-200">Routes Updated</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Features Grid -->
+    <section class="py-24 border-t border-white/5 bg-zinc-900/30">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-2xl md:text-3xl font-medium text-white tracking-tight mb-4">From raw data to refined strategy</h2>
+                <p class="text-zinc-500 font-light">Input your chaotic inventory sheets. Our engine normalizes, analyzes, and presents a clear path forward.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="group p-6 rounded-2xl bg-zinc-900 border border-white/5 hover:border-white/10 transition-colors">
+                    <div class="w-10 h-10 rounded-lg bg-zinc-800 flex items-center justify-center mb-6 text-zinc-300 group-hover:text-indigo-400 transition-colors">
+                        <iconify-icon icon="lucide:upload-cloud" width="20" stroke-width="1.5"></iconify-icon>
+                    </div>
+                    <h3 class="text-lg font-medium text-white tracking-tight mb-3">Seamless Input</h3>
+                    <p class="text-sm text-zinc-500 leading-relaxed">
+                        Drag and drop CSVs, connect APIs, or sync directly with your ERP. We handle the data cleaning automatically.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="group p-6 rounded-2xl bg-zinc-900 border border-white/5 hover:border-white/10 transition-colors">
+                    <div class="w-10 h-10 rounded-lg bg-zinc-800 flex items-center justify-center mb-6 text-zinc-300 group-hover:text-purple-400 transition-colors">
+                        <iconify-icon icon="lucide:brain-circuit" width="20" stroke-width="1.5"></iconify-icon>
+                    </div>
+                    <h3 class="text-lg font-medium text-white tracking-tight mb-3">Neural Processing</h3>
+                    <p class="text-sm text-zinc-500 leading-relaxed">
+                        Our models identify seasonality, dead stock, and demand spikes that traditional spreadsheets miss entirely.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="group p-6 rounded-2xl bg-zinc-900 border border-white/5 hover:border-white/10 transition-colors">
+                    <div class="w-10 h-10 rounded-lg bg-zinc-800 flex items-center justify-center mb-6 text-zinc-300 group-hover:text-emerald-400 transition-colors">
+                        <iconify-icon icon="lucide:bar-chart-3" width="20" stroke-width="1.5"></iconify-icon>
+                    </div>
+                    <h3 class="text-lg font-medium text-white tracking-tight mb-3">Instant Metrics</h3>
+                    <p class="text-sm text-zinc-500 leading-relaxed">
+                        Receive a daily summary of key metrics. Know exactly what to order and when, without the manual calculations.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Logic Flow -->
+    <section class="py-24 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4 relative">
+                <!-- Connecting Line (Desktop) -->
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-zinc-700 to-transparent -z-10"></div>
+
+                <!-- Step 1 -->
+                <div class="flex flex-col items-center text-center gap-4 bg-zinc-950 p-4 z-10">
+                    <div class="w-16 h-16 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center shadow-lg">
+                        <span class="text-2xl font-mono text-zinc-500">01</span>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-medium text-white mb-1">Input Data</h4>
+                        <p class="text-xs text-zinc-500">Upload stock lists</p>
+                    </div>
+                </div>
+
+                <!-- Arrow -->
+                <iconify-icon icon="lucide:arrow-right" class="hidden md:block text-zinc-700" width="20"></iconify-icon>
+                <iconify-icon icon="lucide:arrow-down" class="md:hidden text-zinc-700" width="20"></iconify-icon>
+
+                <!-- Step 2 -->
+                <div class="flex flex-col items-center text-center gap-4 bg-zinc-950 p-4 z-10 relative group">
+                    <!-- Glow effect for AI step -->
+                    <div class="absolute inset-0 bg-indigo-500/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="w-16 h-16 rounded-2xl bg-zinc-900 border border-indigo-500/30 flex items-center justify-center shadow-lg relative">
+                        <iconify-icon icon="lucide:sparkles" class="text-indigo-400 animate-pulse" width="24"></iconify-icon>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-medium text-white mb-1">AI Analysis</h4>
+                        <p class="text-xs text-zinc-500">Processing &amp; Prediction</p>
+                    </div>
+                </div>
+
+                <!-- Arrow -->
+                <iconify-icon icon="lucide:arrow-right" class="hidden md:block text-zinc-700" width="20"></iconify-icon>
+                <iconify-icon icon="lucide:arrow-down" class="md:hidden text-zinc-700" width="20"></iconify-icon>
+
+                <!-- Step 3 -->
+                <div class="flex flex-col items-center text-center gap-4 bg-zinc-950 p-4 z-10">
+                    <div class="w-16 h-16 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center shadow-lg">
+                        <iconify-icon icon="lucide:file-check" class="text-emerald-500/80" width="24"></iconify-icon>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-medium text-white mb-1">Smart Summary</h4>
+                        <p class="text-xs text-zinc-500">Actionable insights</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing / CTA -->
+    <section class="py-20 border-t border-white/5">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="rounded-3xl bg-gradient-to-b from-zinc-900 to-zinc-900/50 border border-white/5 p-8 md:p-12 text-center relative overflow-hidden">
+                <!-- Gradient glow -->
+                <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-indigo-500/10 blur-[80px] rounded-full pointer-events-none"></div>
+
+                <h2 class="text-2xl md:text-3xl font-medium text-white tracking-tight mb-4">Stop guessing. Start optimizing.</h2>
+                <p class="text-zinc-400 mb-8 max-w-lg mx-auto font-light">Join forward-thinking logistics teams using Inventra AI to reduce overhead and prevent stockouts.</p>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <button class="w-full sm:w-auto h-12 px-8 rounded-full bg-white text-zinc-950 font-medium hover:bg-zinc-200 transition-all flex items-center justify-center gap-2">
+                        Get Started Free
+                    </button>
+                    <button class="w-full sm:w-auto h-12 px-8 rounded-full bg-transparent border border-zinc-700 text-white font-medium hover:bg-zinc-800 transition-all flex items-center justify-center gap-2">
+                        Contact Sales
+                    </button>
+                </div>
+                
+                <p class="mt-6 text-xs text-zinc-600">No credit card required for 14-day trial.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 bg-zinc-950 py-12">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+            <div class="col-span-2 md:col-span-1">
+                <div class="flex items-center gap-2 text-white mb-4">
+                     <div class="w-5 h-5 bg-zinc-800 rounded flex items-center justify-center">
+                        <iconify-icon icon="lucide:box" width="12" height="12" class="text-white"></iconify-icon>
+                    </div>
+                    <span class="text-sm font-medium tracking-tight">INVENTRA</span>
+                </div>
+                <p class="text-xs text-zinc-500 leading-relaxed max-w-xs">
+                    Next-generation inventory intelligence for modern businesses.
+                </p>
+            </div>
+            <div>
+                <h4 class="text-xs font-medium text-white mb-4">Product</h4>
+                <ul class="space-y-2 text-xs text-zinc-500">
+                    <li><a href="#" class="hover:text-zinc-300">Features</a></li>
+                    <li><a href="#" class="hover:text-zinc-300">Integrations</a></li>
+                    <li><a href="#" class="hover:text-zinc-300">Pricing</a></li>
+                    <li><a href="#" class="hover:text-zinc-300">Changelog</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-xs font-medium text-white mb-4">Company</h4>
+                <ul class="space-y-2 text-xs text-zinc-500">
+                    <li><a href="#" class="hover:text-zinc-300">About</a></li>
+                    <li><a href="#" class="hover:text-zinc-300">Blog</a></li>
+                    <li><a href="#" class="hover:text-zinc-300">Careers</a></li>
+                    <li><a href="#" class="hover:text-zinc-300">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-xs font-medium text-white mb-4">Legal</h4>
+                <ul class="space-y-2 text-xs text-zinc-500">
+                    <li><a href="#" class="hover:text-zinc-300">Privacy</a></li>
+                    <li><a href="#" class="hover:text-zinc-300">Terms</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-[10px] text-zinc-600">© 2023 Inventra AI Inc. All rights reserved.</p>
+            <div class="flex gap-4">
+                <a href="#" class="text-zinc-600 hover:text-white"><iconify-icon icon="lucide:twitter" width="16"></iconify-icon></a>
+                <a href="#" class="text-zinc-600 hover:text-white"><iconify-icon icon="lucide:github" width="16"></iconify-icon></a>
+                <a href="#" class="text-zinc-600 hover:text-white"><iconify-icon icon="lucide:linkedin" width="16"></iconify-icon></a>
+            </div>
+        </div>
+    </footer>
+
+
+</body></html>
